@@ -24,4 +24,7 @@ r, err := client.SetData("202208310002", "028022FF", 0x1C, ...)
 r, err := client.SendHex("FEFEFEFE68AAAAAAAAAAAA681300DF16")
 
 ```
+## License
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
