@@ -73,7 +73,7 @@ func TestReadData(t *testing.T) {
 }
 func TestSendHex(t *testing.T) {
 	client := newTestClient()
-	r, err := client.SendHex("fefefefe68AAAAAAAAAAAA681300df16")
+	r, err := client.SendHex("fe fe fe fe 68 02 00 31 08 22 20 68 11 04 32 55 b3 35 d1 16")
 	if err != nil {
 		t.Fatal(err)
 	}

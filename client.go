@@ -1,5 +1,7 @@
 package dlt645
 
+import "strings"
+
 // ClientHandler is the interface that groups the Packager and Transporter methods.
 type ClientHandler interface {
 	Packager
@@ -73,7 +75,9 @@ func (mb *client) SetData(addr string, id string, c byte, data []byte) (results 
 }
 
 func (mb *client) SendHex(hex string) (results []byte, err error) {
-	pdu := NewProtocolDataUnit(Hex2Byte(hex))
+	hex = strings.ReplaceAll(hex, " ", "")
+	pdu1 := NewProtocolDataUnit(Hex2Byte(hex))
+	pdu := NewCommonProtocolDataUnit2(ByteRev(pdu1.Address), pdu1.C, pdu1.Data)
 	res, err := mb.send(&pdu)
 	if err != nil {
 		return
