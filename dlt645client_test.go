@@ -77,5 +77,5 @@ func TestSendHex(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	log.Println(r)
+	log.Println(Byte2Hex(ByteRev(r)))
 }

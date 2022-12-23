@@ -20,4 +20,8 @@ type Client interface {
 
 	// 发送 16进制字符串，发送原始报文
 	SendHex(hex string) (results []byte, err error)
+	// 打开端口
+	Open() (err error)
+	// 关闭
+	Close() (err error)
 }

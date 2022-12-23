@@ -95,6 +95,14 @@ func (mb *dlt645SerialTransporter) Send(aduRequest []byte) (aduResponse []byte, 
 	mb.serialPort.logf("dlt645: received % x\n", aduResponse)
 	return
 }
+func (mb *dlt645SerialTransporter) Open() (err error) {
+	err = mb.Connect()
+	return
+}
+func (mb *dlt645SerialTransporter) Close() (err error) {
+	err = mb.serialPort.Close()
+	return
+}
 
 type D645Param struct {
 	Identify string `json:"identify"` // 数据标识, 0280FF01

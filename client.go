@@ -84,6 +84,14 @@ func (mb *client) SendHex(hex string) (results []byte, err error) {
 	}
 	return
 }
+func (mb *client) Open() (err error) {
+	err = mb.transporter.Open()
+	return
+}
+func (mb *client) Close() (err error) {
+	err = mb.transporter.Close()
+	return
+}
 func (mb *client) send(request *ProtocolDataUnit) (response *ProtocolDataUnit, err error) {
 	aduRequest, err := mb.packager.Encode(request)
 	if err != nil {
